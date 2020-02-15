@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.scss';
+import axios from 'axios';
+import UserCard from './components/UserCard';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  constructor(){
+    console.log(`constructor is mounted`);
+    super();
+    this.state= {
+      gitHubUser: [],
+    };
+  }
+
+  componentDidMount(){
+    axios
+      .get(`https://api.github.com/users/swaCreates`)
+      .then(res => {
+        console.log(res.data)
+        this.setState({ gitHubUser: [res.data] })
+      })
+      .catch(err=> console.log(`This is my error: `, err));
+      console.log(`component did mount`);
+  }
+
+  render(){
+    console.log('render is mounted');
+    return (
+      <div className="App">
+        <h1>GitHub User HUB</h1>
+        <UserCard user={this.state.gitHubUser} />
+      </div>
+    );
+
+  }
+  
 }
 
 export default App;
