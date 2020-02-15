@@ -8,9 +8,6 @@ export default function UserCard(props) {
 
     return (
         <div className='userCard-container'>
-            <h1>{props.user.map(name => {
-                return name.name;
-            })}</h1>
             <div>
                 {props.user.map(info=> {
                     return <UserInfo key={info.id} info={info} />
