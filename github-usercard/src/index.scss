@@ -31,6 +31,13 @@ footer, header, hgroup, menu, nav, section {
 body {
   line-height: 1;
   font-family: sans-serif, serif;
+  background-image: url('https://images.unsplash.com/photo-1477949331575-2763034b5fb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80');
+
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+
 }
 ol, ul {
 	list-style: none;

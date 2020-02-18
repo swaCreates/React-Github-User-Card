@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.scss';
 import axios from 'axios';
 import UserCard from './components/UserCard';
+import Follower from './components/Follower';
 
 class App extends Component {
 
@@ -21,8 +22,10 @@ class App extends Component {
         this.setState({ gitHubUser: [res.data] })
       })
       .catch(err=> console.log(`This is my error: `, err));
-      console.log(`component did mount`);
+      console.log(`component mounted user`);
   }
+
+
 
   render(){
     console.log('render is mounted');
@@ -30,6 +33,7 @@ class App extends Component {
       <div className="App">
         <h1>GitHub User HUB</h1>
         <UserCard user={this.state.gitHubUser} />
+        <Follower />
       </div>
     );
 
